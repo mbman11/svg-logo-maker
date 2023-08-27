@@ -1,9 +1,4 @@
 
-
-
-
-
-
 const filesystem = require('./node_modules/graceful-fs/graceful-fs')
 const inquirer = require("inquirer");
 const {Circle, Square, Triangle} = require("./lib/shapes");
@@ -70,6 +65,9 @@ async function init() {
 	if (answers.text.length > 0 && answers.text.length < 4) {
 
 		user_text = answers.text;
+
+
+
 	} else {
 		console.log("must be greater than 0 characters");
         return;
@@ -99,6 +97,8 @@ async function init() {
 	}
 	user_shape.setColor(user_shape_color);
 
+
+  //
 	var svg = new Svg();
   svg.setTextElement(user_text);
 	svg.setTextElement(user_font_color);
@@ -106,6 +106,8 @@ async function init() {
 	svgString = svg.render();
 	
 	console.log("Displaying shape:\n\n" + svgString);
+
+
 
 	writeToFile(svg_file, svgString); 
 }
